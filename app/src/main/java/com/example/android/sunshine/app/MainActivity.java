@@ -69,7 +69,6 @@ public class MainActivity extends ActionBarActivity {
 
 
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-
             String[] data={
                     "Mon 6/23 - Sunny - 31/17",
                     "Tue 6/24 - Foggy - 21/8",
@@ -79,6 +78,8 @@ public class MainActivity extends ActionBarActivity {
                     "Sat 6/28 - TRAPPED IN WEATHERSTATION - 23/18",
                     "Sun 6/29 - Sunny - 20/7"
             };
+
+
 
 
             List<String> weekForecast =  new ArrayList<>(Arrays.asList(data));
