@@ -68,10 +68,10 @@ public  class ForecastFragment extends Fragment {
         return rootView;
     }
 
-    class FetchWheaterTask extends AsyncTask<Void, Void, Void> {
+    class FetchWheaterTask extends AsyncTask<String, Void, Void> {
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected Void doInBackground(String... params) {
             HttpURLConnection urlConnection = null;
             BufferedReader reader = null;
 
@@ -82,7 +82,7 @@ public  class ForecastFragment extends Fragment {
                 // Construct the URL for the OpenWeatherMap query
                 // Possible parameters are available at OWM's forecast API page, at
                 // http://openweathermap.org/API#forecast
-                URL url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?q=94043&mode=json&units=metric&cnt=7");
+                URL url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?q="+params[0]+"&mode=json&units=metric&cnt=7");
 
                 // Create the request to OpenWeatherMap, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
@@ -152,7 +152,7 @@ public  class ForecastFragment extends Fragment {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_refresh) {
             //Toast.makeText(ForecastFragment.this, "refresh", Toast.LENGTH_SHORT).show();
-            new FetchWheaterTask().execute();
+            new FetchWheaterTask().execute("94043");
             Log.e("ClickFragment", "Click");
             return true;
         }
