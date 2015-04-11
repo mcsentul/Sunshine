@@ -76,6 +76,7 @@ public  class ForecastFragment extends Fragment {
             BufferedReader reader = null;
 
 
+
             // Will contain the raw JSON response as a string.
             String forecastJsonStr = null;
 
